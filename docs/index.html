@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TAIBA JAMIL | Portfolio</title>
+  <meta name="description" content="Professional portfolio website for Taiba Jamil, Computer Science student and future Data Scientist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #07111f;
+      --bg-alt: #0b1628;
+      --panel: rgba(255, 255, 255, 0.07);
+      --panel-strong: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #f4f8ff;
+      --muted: #b4c2d8;
+      --blue: #3b82f6;
+      --cyan: #22d3ee;
+      --navy: #0f172a;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --glow: 0 0 20px rgba(34, 211, 238, 0.10), 0 0 40px rgba(59, 130, 246, 0.10);
+      --radius: 24px;
+      --max-width: 1150px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.12), transparent 24%),
+        radial-gradient(circle at 85% 14%, rgba(34, 211, 238, 0.10), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.08), transparent 25%),
+        linear-gradient(180deg, #040912 0%, #07111f 45%, #091525 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.02), transparent 30%, rgba(34,211,238,0.02));
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(59,130,246,0.35), rgba(34,211,238,0.18), rgba(255,255,255,0.04));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 12, 24, 0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+      padding: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: #8fdfff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-heading-wrap {
+      min-height: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(3rem, 6vw, 5.2rem);
+      line-height: 1.04;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      word-break: break-word;
+      text-shadow: 0 0 22px rgba(59, 130, 246, 0.08);
+    }
+
+    .hero-title .name-text {
+      background: linear-gradient(90deg, #ffffff 0%, #d9f4ff 45%, #9fe8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .caret {
+      width: 3px;
+      height: 1em;
+      border-radius: 999px;
+      background: var(--cyan);
+      animation: blink 0.9s steps(1) infinite;
+      transform: translateY(4px);
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.12rem);
+      font-weight: 600;
+      color: #d9e9fb;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .hero-intro {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 14px 22px;
+      min-width: 145px;
+      font-size: 0.96rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.35s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #1d4ed8, #0891b2);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(34, 211, 238, 0.12);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      color: #f8fbff;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--glow);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .hero-card {
+      border-radius: 30px;
+      padding: 30px 26px;
+    }
+
+    .profile-area {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .avatar-ring {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.95), rgba(34,211,238,0.9));
+      box-shadow: 0 0 26px rgba(34, 211, 238, 0.14);
+      animation: floatUp 4s ease-in-out infinite;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.15), transparent 28%),
+        radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.16), transparent 28%),
+        linear-gradient(135deg, #0d182b, #09111f);
+      border: 4px solid rgba(255,255,255,0.06);
+      font-family: "Poppins", sans-serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    .hero-card-name {
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-role {
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 22px;
+      font-size: 0.96rem;
+    }
+
+    .hero-quick-info {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-pill {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #eaf5ff;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .info-pill span:last-child {
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 14px;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 52px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .chart-card,
+    .skills-card,
+    .about-card,
+    .projects-card,
+    .contact-card {
+      border-radius: 28px;
+    }
+
+    .chart-card {
+      min-height: 480px;
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pie-wrapper {
+      width: 360px;
+      height: 360px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pie-chart {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: relative;
+      animation: chartEnter 1.5s ease forwards, slowRotate 19s linear infinite;
+      box-shadow: 0 0 24px rgba(34, 211, 238, 0.10);
+      transition: transform 0.35s ease;
+    }
+
+    .pie-chart:hover {
+      transform: scale(1.03);
+    }
+
+    .pie-chart::before {
+      content: "";
+      position: absolute;
+      inset: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(10,18,33,0.98), rgba(7,13,24,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      z-index: 2;
+    }
+
+    .pie-center {
+      position: absolute;
+      z-index: 3;
+      text-align: center;
+      max-width: 180px;
+      pointer-events: none;
+    }
+
+    .pie-center h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .pie-center p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @keyframes slowRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes chartEnter {
+      from {
+        opacity: 0;
+        transform: scale(0.74) rotate(-40deg);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: blur(0);
+      }
+    }
+
+    .skills-card {
+      padding: 34px 28px;
+    }
+
+    .skills-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .skills-card p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .skill-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 0 18px rgba(34, 211, 238, 0.06);
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .skill-top span:first-child {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .skill-top span:last-child {
+      color: #bfeeff;
+      font-weight: 700;
+    }
+
+    .progress {
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #2563eb, #06b6d4);
+      box-shadow: 0 0 16px rgba(34, 211, 238, 0.10);
+      transition: width 1.8s ease;
+    }
+
+    .about-card {
+      padding: 34px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      line-height: 1.95;
+      font-size: 1rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .projects-card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .projects-card p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .contact-card {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 34px 28px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-info {
+      padding: 22px 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-info h3 {
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+
+    .contact-pills {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-pill {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #eaf5ff;
+      word-break: break-word;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font: inherit;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .field::placeholder {
+      color: #aab9ce;
+    }
+
+    .field:focus {
+      border-color: rgba(34, 211, 238, 0.55);
+      box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.08);
+    }
+
+    textarea.field {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(42px);
+      transition: 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .line-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: lineIn 0.8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.18s; }
+    .delay-2 { animation-delay: 0.45s; }
+    .delay-3 { animation-delay: 0.75s; }
+
+    @keyframes lineIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-left {
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-intro {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        flex-direction: column;
+      }
+
+      .hero-title {
+        font-size: 2.6rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.98rem;
+      }
+
+      .avatar-ring {
+        width: 180px;
+        height: 180px;
+      }
+
+      .avatar-inner {
+        font-size: 2.7rem;
+      }
+
+      .pie-wrapper {
+        width: 290px;
+        height: 290px;
+      }
+
+      .pie-chart::before {
+        inset: 44px;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .chart-card,
+      .skills-card,
+      .about-card,
+      .projects-card,
+      .contact-card {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="brand">Taiba <span>Jamil</span></div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="hero-heading-wrap reveal active">
+            <h1 class="hero-title" id="typingTitle"></h1>
+            <span class="caret" id="caret"></span>
+          </div>
+
+          <div class="hero-subtitle line-reveal delay-1">
+            Computer Science Student | Future Data Scientist | ML Learner
+          </div>
+
+          <p class="hero-intro line-reveal delay-2">
+            I am a Computer Science student focused on building a strong future in Data Science and Machine Learning. I enjoy learning Python-based tools, strengthening problem-solving skills, and growing through consistent practice and continuous improvement.
+          </p>
+
+          <div class="hero-actions line-reveal delay-3">
+            <a href="https://github.com/taibanoor133" target="_blank" class="btn btn-primary">GitHub</a>
+            <a href="https://www.linkedin.com/in/taiba-noor-817aa13b2" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-card glass reveal">
+          <div class="profile-area">
+            <div class="avatar-ring">
+              <div class="avatar-inner">TJ</div>
+            </div>
+          </div>
+
+          <div class="hero-card-name">Taiba Jamil</div>
+          <div class="hero-card-role">Computer Science Student • Future Data Scientist • ML Learner</div>
+
+          <div class="hero-quick-info">
+            <div class="info-pill">
+              <span>Focus</span>
+              <span>Data Science & ML</span>
+            </div>
+            <div class="info-pill">
+              <span>Email</span>
+              <span>taibanoor926@example.com</span>
+            </div>
+            <div class="info-pill">
+              <span>Location</span>
+              <span>Pakistan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal">Skills</h2>
+        <p class="section-subtitle reveal">
+          A focused technical foundation built around programming, data analysis, visualization, and machine learning fundamentals.
+        </p>
+
+        <div class="skills-grid">
+          <div class="chart-card glass reveal">
+            <div class="pie-wrapper">
+              <div class="pie-chart" id="pieChart"></div>
+              <div class="pie-center">
+                <h3>Core Skills</h3>
+                <p>Python, Pandas, NumPy, Matplotlib, and Machine Learning</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-card glass reveal">
+            <h3>Technical Strengths</h3>
+            <p>
+              My current learning path is centered on practical Python skills, data handling, clear visualization, and building a strong foundation for future machine learning work.
+            </p>
+
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-top">
+                  <span>Python</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" data-width="90%"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-top">
+                  <span>Pandas</span>
+                  <span>88%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-top">
+                  <span>NumPy</span>
+                  <span>87%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" data-width="87%"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-top">
+                  <span>Matplotlib</span>
+                  <span>86%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" data-width="86%"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-top">
+                  <span>Machine Learning</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-subtitle reveal">
+          A short introduction to my direction, mindset, and professional goals.
+        </p>
+
+        <div class="about-card glass reveal">
+          <p>
+            I am passionate about Data Science, Machine Learning, and problem solving. I enjoy learning how data can be explored, understood, and used to create meaningful solutions. With a strong interest in continuous learning and future growth, I am focused on developing the technical and analytical skills needed to become a capable and professional Data Scientist.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal">Projects</h2>
+        <p class="section-subtitle reveal">
+          This section is reserved for future portfolio work as I continue building experience and technical depth.
+        </p>
+
+        <div class="projects-card glass reveal">
+          <p>
+            I am currently strengthening my foundation and preparing professional-quality work that will be showcased here in the future.
+          </p>
+          <a href="#contact" class="btn btn-primary">View Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Contact Me</h2>
+        <p class="section-subtitle reveal">
+          Feel free to connect through the form below or through the placeholder professional links provided in this portfolio.
+        </p>
+
+        <div class="contact-card glass reveal">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h3>Let’s Connect</h3>
+              <p>
+                I am interested in learning opportunities, professional networking, and future roles related to Computer Science, Data Science, and Machine Learning.
+              </p>
+
+              <div class="contact-pills">
+                <div class="contact-pill">Email: taibanoor926@example.com</div>
+                <div class="contact-pill">GitHub: github.com/taibanoor133</div>
+                <div class="contact-pill">LinkedIn: https://www.linkedin.com/in/taiba-noor-817aa13b2</div>
+                <div class="contact-pill">Location: Pakistan</div>
+              </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+              <input class="field" type="text" placeholder="Enter your name" required>
+              <input class="field" type="email" placeholder="Enter your email" required>
+              <textarea class="field" placeholder="Your message" required></textarea>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2026 Taiba Jamil • Personal Portfolio
+  </footer>
+
+  <script>
+    const titleText = "Taiba Jamil";
+    const titleEl = document.getElementById("typingTitle");
+    const caretEl = document.getElementById("caret");
+    let index = 0;
+
+    function typeTitle() {
+      if (index < titleText.length) {
+        titleEl.textContent += titleText.charAt(index);
+        index++;
+        setTimeout(typeTitle, 85);
+      } else {
+        titleEl.innerHTML = '<span class="name-text">' + titleText + '</span>';
+        caretEl.style.display = "none";
+      }
+    }
+    typeTitle();
+
+    const pieChart = document.getElementById("pieChart");
+    const skillData = [
+      { name: "Python", value: 90, color: "#2563eb" },
+      { name: "Pandas", value: 88, color: "#0ea5e9" },
+      { name: "NumPy", value: 87, color: "#22d3ee" },
+      { name: "Matplotlib", value: 86, color: "#38bdf8" },
+      { name: "Machine Learning", value: 85, color: "#60a5fa" }
+    ];
+
+    const total = skillData.reduce((sum, item) => sum + item.value, 0);
+    let currentDeg = 0;
+
+    const segments = skillData.map(item => {
+      const deg = (item.value / total) * 360;
+      const start = currentDeg;
+      const end = currentDeg + deg;
+      currentDeg = end;
+      return `${item.color} ${start}deg ${end}deg`;
+    });
+
+    pieChart.style.background = `conic-gradient(${segments.join(", ")})`;
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const winHeight = window.innerHeight;
+        if (top < winHeight - 80) {
+          el.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    const progressBars = document.querySelectorAll(".progress-bar");
+
+    function animateBars() {
+      progressBars.forEach(bar => {
+        const top = bar.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
+          bar.style.width = bar.dataset.width;
+        }
+      });
+    }
+
+    window.addEventListener("scroll", animateBars);
+    window.addEventListener("load", animateBars);
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("Your message has been sent successfully!");
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
